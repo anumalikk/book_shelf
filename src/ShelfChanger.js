@@ -37,7 +37,7 @@ function ShelfChanger({
     let mounted = true;
     const getBooks = async () => {
       const res = await BooksAPI.get(book.id);
-      if (mounted) setSelectedValue(res.shelf);
+      if (mounted) setSelectedValue(res.shelf === undefined || res.shelf=== "none" ? "moveTo.": res.shelf);
     };
 
     getBooks();
